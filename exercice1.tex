@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{array} 
+
+\begin{document}
+
+Exercice 1
+
+\vspace{0.5cm}
+
+a) Soient $p := 1 < 0, q := 2 < 3$ et $r := 2 < 1$.
+Nous pouvons voir que l'expression 
+
+$$(p \land q) \implies r$$
+est vraie parce que $p \land q$ est fausse, étant une conjonction contenant une affirmation fausse, donc par définition, l'implication est vraie. D'autre part, l'expression 
+
+$$ (p \implies r) \land (q \implies r)$$
+est fausse parce que q est vraie mais r fausse et l'expression est une conjonction. Or, parce qu'elles diffèrent en valeurs de vérité pour les mêmes variables, ce ne sont pas des expressions équivalentes.
+
+\vspace{0.5cm}
+
+b) Soient les expressions $$A:= (p \implies (q \land r)) \implies ((p \implies q) \land (p \implies r))$$ et
+$$B := (p \implies (q \land r)) \impliedby ((p \implies q) \land (p \implies r))$$
+
+Voici un tableau de vérité pour montrer que l'expression est vraie.
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+\hline
+$p$ & $q$ & $r$ & $p \implies$ ($q \land r$) & $q \land r$ & $ A $& $p \implies q  $ & $ (p \implies q) \land (p \implies r) $ & $p \implies r $ & $ B $\\
+\hline
+V & V & V & V & V & V & V & V & V & V\\
+V & V & F & F & F & V & V & F & F & V\\
+V & F & V & F & F & V & F & F & V & V\\
+F & V & V & V & V & V & V & V & V & V\\
+V & F & F & F & F & V & F & F & F & V\\
+F & F & V & V & F & V & V & V & V & V\\
+F & V & F & V & F & V & V & V & V & V\\
+F & F & F & V & F & V & V & V & V & V\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline
+$ A \land B$ & $(p \implies (q \land r)) \iff ((p \implies q) \land (p \implies r))$\\
+\hline
+V & V \\
+V & V \\
+V & V \\
+V & V \\
+V & V \\
+V & V \\
+V & V \\
+V & V \\
+\hline
+\end{tabular}
+\end{center}
+
+par la définition de l’opérateur si et seulement si.
+
+
+
+\end{document}
