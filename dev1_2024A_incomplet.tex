@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+
+\newcommand{\ENONCE}[1]{#1}
+ \newcommand{\REMISE}[1]{}
+ \usepackage[T1]{fontenc}
+\frenchspacing
+\usepackage[francais]{babel}  % genere les trucs automatique en francais, dont les beaux guillemets
+\usepackage[utf8]{inputenc}
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epigraph}
+%\usepackage{subfig}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{tikz}%%%%%%%pour les diagrammes de Venn mais franchement ne vous donnez pas ce trouble?
+
+%%% Couleurs du texte %%%
+\newcommand{\rouge}[1]{\textcolor{red}{#1}}
+\newcommand{\bleu}[1]{\textcolor{blue}{#1}}
+\newcommand{\blanc}[1]{\textcolor{white}{#1}}
+
+%%% Valeurs booléennes %%%
+\newcommand{\vrai}{\mbox{\tt vrai}}
+\newcommand{\faux}{\mbox{\tt faux}}
+\newcommand{\V}{\mbox{\tt v}}
+\newcommand{\F}{\mbox{\tt f}}
+
+%%% Opérateur booléens %%%
+\newcommand{\non}{\neg}                  % Opérareur de négation
+\newcommand{\et}{\wedge}                 % Opérareur de conjonction
+\newcommand{\ou}{\vee}                   % Opérareur de disjonction
+\newcommand{\ouexclusif}{\veebar}        % Opérareur de ou exclusif
+\newcommand{\implique}{\Rightarrow}      % Opérareur d'implication
+\newcommand{\impliqueinv}{\Leftarrow}    % Opérareur d'implication inverse
+\newcommand{\ssi}{\Leftrightarrow}       % Opérareur si et seulement si
+
+%%% Opérateurs ensemblistes %%%
+\newcommand{\dans}{\in}                  % Opérateur d'appartenance
+\newcommand{\inclus}{\subseteq}          % Opérareur d'inclusion
+\newcommand{\strictinclus}{\subset}      % Opérareur d'inclusion stricte
+\newcommand{\inclusinv}{\supseteq}       % Opérareur d'inclusion inverse
+\newcommand{\strictinclusinv}{\supset}   % Opérareur d'inclusion stricte inverse
+
+\newcommand{\nondans}{\notin}              % Négation de l'opérateur d'appartenance
+\newcommand{\noninclus}{\not\subseteq}     % Opérareur d'inclusion
+\newcommand{\nonstrictinclus}{\not\subset} % Opérareur d'inclusion stricte
+
+\newcommand{\inter}{\cap}                 % Opérateur d'intersection
+\newcommand{\union}{\cup}                 % Opérateur d'intersection
+\newcommand{\comp}{{\mbox{\footnotesize $c$}}} % Complément
+\newcommand{\moins}{\setminus}
+
+%%% Ensembles fréquemments utilisés %%%
+\newcommand{\ensembleVide}{\emptyset}  % L'ensemble vide
+\newcommand{\ensembleU}{{\mathbf{U}}}  % L'ensemble universel
+\newcommand{\ensembleB}{{\mathbb{B}}}  % L'ensemble des nombres booléens
+\newcommand{\ensembleN}{{\mathbb{N}}}  % L'ensemble des nombres naturels
+\newcommand{\ensembleZ}{{\mathbb{Z}}}  % L'ensemble des nombres relatifs
+\newcommand{\ensembleR}{\mathbb{R}}    % L'ensemble des nombres reels
+\newcommand{\ensembleQ}{\mathbb{Q}}    % L'ensemble des nombres rationnels
+
+%%% Relations  %%%
+\newcommand{\compose}{\circ}            % Opérateur de composition
+\newcommand{\croix}{\times}             % Opérateur de produit cartésien
+\newcommand{\Identite}{{\mathbf{I}}}    % Relation Identitée
+\newcommand{\Domaine}{{\mbox{\rm Dom}}} % Domaine
+\newcommand{\Image}{{\mbox{\rm Im}}}    % Image
+\newcommand{\tuple}[1]{\ensuremath{\left\langle #1 \right\rangle}}  % n-tuple
+\newcommand{\Rcal}{{\mathcal R}}       % «R» caligraphique
+\newcommand{\Lcal}{{\mathcal L}}       % «L» caligraphique
+
+%%% Démonstrations %%%
+\newcommand{\cqfd}{\blanc{.}\\[-2mm]\mbox{}\hfill {\bf C.Q.F.D.}\\} % C.Q.F.D
+\newcommand{\EQUIVALENT}[1]{ \quad \left\langle \mbox{ \it #1 } \right\rangle }
+\newcommand{\EXPLICATION}[1]{ \blanc{.}\hfill $\left\langle \mbox{ \small\it #1 } \right\rangle$ }
+
+%%% Divers %%%
+\newcommand{\textdef}[1]{{\sl\bf #1}\index{#1}}         % Définition de terme
+\newcommand{\eqdef}{\overset{{\mbox{\rm\tiny def}}}{=}} % Symbole de définition
+\newcounter{exercice}\newcommand{\exercice}{\bigskip \addtocounter{exercice}{1}\noindent \textbf{Exercice \theexercice}\\}
+\newcommand{\reponse}[1]{\REMISE{\vspace{.5cm}\noindent\textbf{Réponse : } #1 \vfill}}
+\REMISE{\renewcommand{\ENONCE}[1]{}}
+\newcommand{\solution}[1]{}
+
+\begin{document}
+% ---------------------------------- DÉBUT DES MODIFICATIONS À FAIRE ---------------------------
+% Décommenter la ligne suivante pour compiler en mode ``Remise de travail''
+%\renewcommand{\REMISE}[1]{#1} 
+
+% ----------------------------------  CONSEILS POUR FACILITER LA REMISE  ---------------------------
+% 
+%   Les noms ne sont pas nécessaires (les fichiers sont liés à l'équipe dans le portal) Nous les avons insérés quand même car plusieurs étudiants sont plus à l'aise d'avoir une copie « normale »
+%
+%   Compilez votre devoir en un fichier et [utilisez un éditeur de pdf pour séparer vos fichiers en numéros
+%   		 ou par exemple « imprimer en pdf p1,2 » pour le numéro 1, etc]
+%
+%   ---------------------------------------------------------------------
+
+\REMISE{
+\noindent
+\begin{tabular}{l}
+% Modifiez les noms etc  ---------------------------------------------------------------------
+Nom1  B-GLO ou B-IFT\\%pas nécessaire
+Nom2  B-GLO ou B-IFT
+\end{tabular}
+}
+\hfill
+ {\large MAT-1919:  Automne 2024}\\
+\begin{center}
+{\LARGE \textbf{DEVOIR 1}}\\[2mm]
+\emph{À remettre \emph{ le 30 septembre 2024} à 23h59 au plus tard}
+\end{center}
+\REMISE{\newpage}% 
+
+\ENONCE{
+\noindent
+\emph{
+Toutes les consignes suivantes seront considérées dans la note. }
+\begin{itemize}
+\item[$\bullet$]  Créez votre équipe (de 1 à 3 étudiants) avant la date limite de création d'une équipe, \textbf{dans tous les cas}, même si vous êtes seul et même si \textcolor{lightgray}{ \it \tt [insert reason here]}.%, même si le ciel est bleu. 
+\item[$\bullet$]  Remise :  {\large\rouge{\textbf{un} fichier pdf \textbf{par exercice} (un seul)\footnote{En fait vous rencontrerez un problème si on s'emballe pour le nombre de numéro : le monportail ne vous permet pas de remettre plus de 5 fichiers à la fois. Qu'à cela ne tienne! vous le ferez en 2 coups!}}, chacun   identifié par son numéro comme \bleu{dernier} caractère} (ex.: \emph{1.pdf, no2.pdf, mat1919dev2no5.pdf}). Nous utilisons un programme pour gérer les fichiers. Si plus d'un fichier termine par 3, ça crée problème.
+\item[$\bullet$]  Soignez la \textbf{lisibilité} et l'orthographe. Les photos sont souvent  de \textbf{piètre qualité}. Des logiciels de numérisation pour téléphone font mieux, comme OfficeLens.
+\item[$\bullet$]  Retard :  les 2 premières heures non pénalisées; ensuite -1\% par heure de retard.
+\end{itemize}
+\noindent
+Il n'est pas nécessaire de remettre une page couverture, ni de mettre vos noms ou matricules. Les noms sont fixés aux équipes et tout ça est associé automatiquement par la remise sur le portail. 
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice
+a) Démontrez que l'implication n'est pas distributive à droite sur la conjonction. C'est-à-dire démontrez
+$$(p\wedge q)\implique r \mbox{ n'est pas équivalent à } (p\implique r ) \wedge (q\implique r).$$
+\\b) Démontrez que pourtant,  l'implication est  distributive à gauche sur la conjonction! C'est-à-dire démontrez par table de vérité qu'on a bien
+$$p\implique (q\wedge r)\  \ssi\  (p\implique q ) \wedge (p\implique r).$$
+\reponse{
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % % % EXEMPLE DE TABLE DE VERITE % % % %
+%\begin{center}
+%\begin{tabular}{c c c c|c|c|c|c|c|c}
+%$x_1$ & $x_2$ & $x_3$ & $x_4$ & $\overbrace{x_1\ou x_2}^{c_1}$ & $\overbrace{\non x_1 \ou x_3}^{c_2}$ & $\overbrace{x_1 \ou \non x_2}^{c_3}$ & $\overbrace{\non x_2 \ou x_3 }^{c_4}$ & $\overbrace{\non x_1 \ou \non x_3 }^{c_5}$ & $\overbrace{c_1 \et c_2 \et c_3 \et c_4 \et c_5}^{\psi_c}$ \\
+%\hline
+%\V & \V & \V & \V & \V & \V & \V & \V &\F & \rouge{\F} \\
+%\V & \V & \V & \F & \V & \F & \V & \F &\V & \rouge{\F} \\
+%\V & \V & \F & \V & \V & \V & \V & \V &\F & \rouge{\F} \\
+%\V & \V & \F & \F & \V & \F & \V & \V &\V & \rouge{\F} \\
+%\V & \F & \V & \V & \V & \V & \F & \V &\V & \rouge{\F} \\
+%\V & \F & \V & \F & \V & \V & \F & \F &\V & \rouge{\F} \\
+%\V & \F & \F & \V & \F & \V & \V & \V &\V & \rouge{\F} \\
+%\V & \F & \F & \F & \F & \V & \V & \V &\V & \rouge{\F} \\
+%\F & \V & \V & \V & \V & \V & \V & \V &\F & \rouge{\F} \\
+%\F & \V & \V & \F & \V & \F & \V & \F &\V & \rouge{\F} \\
+%\F & \V & \F & \V & \V & \V & \V & \V &\F & \rouge{\F} \\
+%\F & \V & \F & \F & \V & \F & \V & \V &\V & \rouge{\F} \\
+%\F & \F & \V & \V & \V & \V & \F & \V &\V & \rouge{\F} \\
+%\F & \F & \V & \F & \V & \V & \F & \F &\V & \rouge{\F} \\
+%\F & \F & \F & \V & \F & \V & \V & \V &\V & \rouge{\F} \\
+%\F & \F & \F & \F & \F & \V & \V & \V &\V & \rouge{\F}
+%\end{tabular}
+%\end{center}
+%
+\exercice
+a) L'expression $\non (p \ou q\implique  r)) $ est-elle satisfiable? est-elle toujours vraie?  est-elle toujours fausse? Justifiez   en donnant soit des valuations qui témoignent de vos affirmations, soit par table de vérité, selon ce qui est le plus approprié. Faites des phrases complètes!
+\\
+b) Transformez cette expression en FNC forme normale conjonctive (voir CNF p.29 dans les notes de cours) en incluant la démonstration. En transformant il se peut que vous trouviez des façons de simplifier l'expression, ce qui n'est pas nécessaire. Vous pouvez arrêter dès que l'expression est en FNC;  \textbf{toutefois, si vous continuez à simplifier}, indiquez toutes les lignes qui contiennent des expressions en FNC.
+\reponse{
+}
+\vfill
+
+\textcolor{red}{Autres numéros à venir!}
+\end{document}
+
+
