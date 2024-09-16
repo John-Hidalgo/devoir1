@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{array} 
+
+\begin{document}
+
+Exercice 2
+
+\vspace{0.5cm}
+
+a) Regardons une table de vérité de l'expression.
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+$p$ & $q$ & $r$ & $p \lor q$ & $p \lor q \implies r$ & $ \neg(p \lor q \implies r) $\\
+\hline
+V & V & V & V & V & F \\
+V & V & F & V & F & V \\
+V & F & V & V & V & F \\
+F & V & V & V & V & F \\
+V & F & F & V & F & V \\
+F & F & V & F & V & F \\
+F & V & F & V & F & V \\
+F & F & F & F & V & F \\
+\hline
+\end{tabular}
+\end{center}
+
+Oui, cette expression est satisfiable. Nous pouvons voir sur la table de vérité ci-dessus qu'il y a au moins une affectation de vérité qui rend cette expression vraie. L'expression n'est pas toujours vraie, ni toujours fausse, nous pouvons le voir clairement dans les affectations de vérité de la table.
+
+\vspace{0.5cm}
+
+b) 
+
+$$ \neg((p \lor q) \implies r) \iff \neg(\neg(p \lor q) \lor r)$$
+
+Par la définition de l’implication, la règle de la substitution avec $[p := p \lor q]$ et $[q :=r]$ et la règle d’équivalence dont $E : (\neg s)$
+
+$$ \neg(\neg(p \lor q) \lor r) \iff  \neg(\neg(p \lor q)) \land \neg r $$
+
+Par la deuxième loi de De Morgan et la règle de la substitution avec $[p : \neg(p \lor q)]$ et $[q :=\neg r]$
+
+$$  \neg(\neg(p \lor q)) \land \neg r \iff (p \lor q) \land \neg r$$
+
+Par la double négation et la règle de la substitution avec $[p := p \lor q]$ et la regle d’equivalence dont $E : (s \land \neg r)$
+
+L'expression $(p \lor q) \land \neg r$ est sous forme normale conjonctive parce qu'il s'agit d'une conjonction de disjonction de littéraux.
+
+
+
+\end{document}
