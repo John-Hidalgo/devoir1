@@ -139,6 +139,7 @@ $$(p\wedge q)\implique r \mbox{ n'est pas équivalent à } (p\implique r ) \wedg
 $$p\implique (q\wedge r)\  \ssi\  (p\implique q ) \wedge (p\implique r).$$
 \reponse{
 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % % % % EXEMPLE DE TABLE DE VERITE % % % %
@@ -166,14 +167,169 @@ $$p\implique (q\wedge r)\  \ssi\  (p\implique q ) \wedge (p\implique r).$$
 %\end{center}
 %
 \exercice
-a) L'expression $\non (p \ou q\implique  r)) $ est-elle satisfiable? est-elle toujours vraie?  est-elle toujours fausse? Justifiez   en donnant soit des valuations qui témoignent de vos affirmations, soit par table de vérité, selon ce qui est le plus approprié. Faites des phrases complètes!
+a) L'expression $\non (p \ou q\implique  r) $ est-elle satisfiable? est-elle toujours vraie?  est-elle toujours fausse? Justifiez   en donnant soit des valuations qui témoignent de vos affirmations, soit par table de vérité, selon ce qui est le plus approprié. Faites des phrases complètes!
 \\
 b) Transformez cette expression en FNC forme normale conjonctive (voir CNF p.29 dans les notes de cours) en incluant la démonstration. En transformant il se peut que vous trouviez des façons de simplifier l'expression, ce qui n'est pas nécessaire. Vous pouvez arrêter dès que l'expression est en FNC;  \textbf{toutefois, si vous continuez à simplifier}, indiquez toutes les lignes qui contiennent des expressions en FNC.
 \reponse{
 }
 \vfill
 
+
+
+
+%-------------------------- Exemple démonstration par succession d'équivalences ---------------
+%\paragraph{Démonstration de la proposition 1.1.8} (Contraposition) \\
+%\noindent
+%Soit $p$ et $q$ deux expressions booléennes.  Démontrons ``$p \implique q \ \ssi \ \non q \implique \non p$'':\\[-8pt]
+%\begin{equation*}
+%\begin{array}{ll}
+% \hspace{.5cm}& p \implique q  \\
+%%
+% \ssi & \EQUIVALENT{Déf 1.1.2-a -- Définition de l'implication} \\
+% & \non p \ou q \\
+%%
+% \ssi & \EQUIVALENT{Prop 1.1.5-c -- Double négation, avec $[p:=q]$}\\
+% & \non p \ou \non(\non q) \\
+%%
+% \ssi & \EQUIVALENT{Prop 1.1.7-d -- Commutativité de la disjonction, avec $[p:=\non p]$ et $[q:=\non(\non q)]$} \\
+% & \non(\non q) \ou  \non p \\
+%%
+% \ssi & \EQUIVALENT{Déf 1.1.2-a -- Définition de l'implication, avec $[p:=\non q]$ et $[q:=\non p]$} \\
+% & \non q \implique \non p
+%\end{array}
+%\end{equation*}
+%\cqfd
+%
+
+\newpage
+\exercice
+\emph{Notez que pour ce numéro, pour alléger la correction, seulement certains numéros, choisis au hasard seront lus, notés et commentés. Les mêmes pour tous les étudiants.}
+
+Nous voulons développer un nouveau jeu de cartes. Nous désirons modéliser les cartes comme une base de données, mais ça, c'est pour le devoir 2; pour le moment, voyons une partie de ce que nous y manipulerons.
+%L'avantage de définir les commandes suivantes dans un mbox en laTeX ici, c'est que même dans un environnement math les lettres vont avoir la même allure qu'hors de l'environnement. Dans un texte bien écrit, on ne veut pas qu'une variable/constante mathématique change d'apparence. De plus, dans un environnement mathématique, l'espace entre les lettres est calculé comme si les lettres étaient des variables multipliées et non comme un mot. Ce n'est donc pas acceptable pour les mots.
+\newcommand{\role}{\mbox{ROLE}}
+\newcommand{\attribut}{\mbox{ATTRIBUT}}
+\newcommand{\attributn}{\mbox{ATTRIBUT\_A}}
+\newcommand{\profil}{\mbox{PROFIL}}
+
+Considérons les ensembles suivants:
+\begin{itemize}
+\item L'ensemble \role\ contenant les rôles (on pourrait penser à \textsf{humain},  \textsf{gnome}, \textsf{lion}, \textsf{oiseau}).
+\item L'ensemble \attribut\ contenant les différents attributs (par exemple \textsf{deux\_mains},  \textsf{museau}, \textsf{bec}, \textsf{plume}).
+\item L'ensemble \attributn\ contenant des attributs alimentaires (qui servent à s'alimenter), parmi lesquels \textsf{bec}.
+\item L'ensemble \profil\ contenant des regroupements d'attributs, c'est-à-dire \profil$\subseteq \mathcal{P}(\attribut)$.
+\end{itemize}
+\noindent
+Les règles du jeu n'ont pas d'importance pour le moment. 
+
+Pour chaque phrase suivante, écrivez une expression qui la représente. Pour un défi supplémentaire (non pénalisé) utilisez seulement les opérateurs ensemblistes, si c’est possible. 
+\\[2mm]
+a) \textsf{bec} est un attribut.\\[2mm]
+b) Les attributs alimentaires sont des attributs.\\[2mm]
+c) Les attributs ne sont pas tous alimentaires.\\[2mm]
+d) L'ensemble des profils qui contiennent  la \textsf{plume}\\[2mm]
+ e) Il y a au moins 20 attributs qui ne sont pas alimentaires.\\[2mm]
+ f) L'ensemble des attributs qui ne font partie d'aucun profil.\\[2mm]
+ g)  Tout attribut fait partie d'au moins un profil.\\[2mm]
+h) Aucun rôle n'est un attribut, et aucun attribut n'est un rôle.
+ \\Conseil : imaginez-en d'autres, car il y aura une question semblable à l'examen! \\[3mm]
+ Répondez aussi aux questions suivantes\\[2mm]
+i) 
+Quelle interprétation possède l'expression \\\mbox{}\hfill$(\forall x \dans \attributn \mid (\exists b\in \profil\mid  \neg(x\in b) \,) )\,.$\hfill\mbox{}
+ \\[3mm]
+j) Mettez le bon symbole $\in,\subseteq, \supseteq$  entre les éléments suivants. Si rien n’est possible, indiquez-le. \\[-3mm]
+\begin{itemize}
+\item[f-1.] $\textsf{plume} ~~???~~ \mathcal{P}(\attribut)$
+\item[f-2.] $\attributn~~???~~ \mathcal{P}(\attribut)$
+\item[f-3.] $\{\textsf{bec}\}~~???~~\profil$
+\item[f-4.] $\mathcal{P}(\attributn) ~~???~~ \mathcal{P}(\attribut)$
+\end{itemize}
+Si un symbole est possible \emph{syntaxiquement} mais qu'il manque d'information pour dire si c'est vrai ou faux,   mettez-en un quand même. Par exemple, on ne sait pas si dans les profils il y a une profil vide, mais comme c'est possible, on pourrait  écrire $\emptyset\in\profil$. Ainsi vous n'avez pas non plus à tenir compte des affirmations a) à i).
+
+
+
+
+
+%%-------------------------- Exemple d'écritures de diagramme de Venn  ---------------
+%   Mais franchement slm si ça vous amuse! un beau dessin numérisé est tout aussi bien
+% vous pouvez aussi faire dans un autre logiciel et insérer l'image comme ceci.
+%\mbox{}\hfill\includegraphics[scale=0.3]{votreIMAGE}\hfill\mbox{}
+
+%% Definition of circles
+%\def\scircle{(0,0) circle (0.75cm)}
+%\def\tcircle{(0:1cm) circle (0.75cm)}
+%\def\vcircle{(2cm:1cm) circle (0.75cm)}
+%
+%\colorlet{circle edge}{blue!50}
+%\colorlet{circle area}{blue!20}
+%
+%\tikzset{filled/.style={fill=circle area, draw=circle edge, thick},
+%    outline/.style={draw=circle edge, thick}}
+%
+%%\setlength{\parskip}{5mm}
+%\begin{center}
+%\begin{minipage}{.2\textwidth}
+%\begin{tikzpicture}
+%    \begin{scope}
+%        \fill[filled] \scircle;
+%    \end{scope}
+%    \draw[outline] \scircle node {$S$};
+%    \draw[outline] \tcircle node {$T$};
+%    \draw[outline] \vcircle node {$V$};
+%    
+%    \draw  ([xshift=-15pt,yshift=15pt]current bounding box.north west) 
+%      rectangle ([xshift=15pt,yshift=-15pt]current bounding box.south east);
+%
+%	\node[xshift=10pt,yshift=10pt] at (current bounding box.south west) {$\mathbf{U}$};
+%    \node[anchor=south] at (current bounding box.north) {$S$};
+%    
+%\end{tikzpicture}
+%\end{minipage}%
+%\begin{minipage}{.1\textwidth}
+%$\quad\quad \cap$
+%\end{minipage}%
+%\begin{minipage}{.2\textwidth}
+%$\left(\begin{array}{c}
+%\begin{tikzpicture}
+%    \begin{scope}
+%        \fill[filled] \tcircle;
+%        \fill[filled] \vcircle;
+%    \end{scope}
+%    \draw[outline] \scircle node {$S$};
+%    \draw[outline] \tcircle node {$T$};
+%    \draw[outline] \vcircle node {$V$};
+%    
+%    \draw  ([xshift=-15pt,yshift=15pt]current bounding box.north west) 
+%      rectangle ([xshift=15pt,yshift=-15pt]current bounding box.south east);
+%
+%	\node[xshift=10pt,yshift=10pt] at (current bounding box.south west) {$\mathbf{U}$};
+%    \node[anchor=south] at (current bounding box.north) {$T \cup V$};
+%    
+%\end{tikzpicture}\end{array}\right)$
+%\end{minipage}%
+%\begin{minipage}{.15\textwidth}
+%$\qquad\qquad =$
+%\end{minipage}%
+%\begin{minipage}{.3\textwidth}
+%\begin{tikzpicture}\quad
+%    \begin{scope}
+%    	\clip \scircle;
+%        \fill[filled] \tcircle;
+%        \fill[filled] \vcircle;
+%    \end{scope}
+%    \draw[outline] \scircle node {$S$};
+%    \draw[outline] \tcircle node {$T$};
+%    \draw[outline] \vcircle node {$V$};
+%    
+%    \draw  ([xshift=-15pt,yshift=15pt]current bounding box.north west) 
+%      rectangle ([xshift=15pt,yshift=-15pt]current bounding box.south east);
+%
+%	\node[xshift=10pt,yshift=10pt] at (current bounding box.south west) {$\mathbf{U}$};
+%    \node[anchor=south] at (current bounding box.north) {$S \cap (T \cup V)$};
+%    
+%\end{tikzpicture}
+%\end{minipage}%
+%\end{center}
+
 \textcolor{red}{Autres numéros à venir!}
 \end{document}
-
-
