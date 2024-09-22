@@ -8,23 +8,12 @@
 Exercice 1
 
 \vspace{0.5cm}
-
-a) Soit $p := 1 < 0, q := 2 < 3$ et $r := 2 < 1$.
-Nous pouvons voir que l'expression 
-
-$$(p \land q) \implies r$$
-est vraie parce que $p \land q$ est fausse, étant une conjonction contenant une affirmation fausse, donc par définition, l'implication est vraie. D'autre part, l'expression 
-
-$$ (p \implies r) \land (q \implies r)$$
-est fausse parce que q est vraie mais r fausse et l'expression est une conjonction. Or, parce qu'elles diffèrent en valeurs de vérité pour les mêmes variables, ce ne sont pas des expressions équivalentes.
-
-\vspace{0.5cm}
-Il est également possible de le prouver en effecturant la table de vérité de l'expression:
+Il est possible de le prouver en effectuant la table de vérité de l'expression:
 
 \begin{center}
-\begin{tabular}{| c | c | c | c | c | c | c | c | c |}
+\begin{tabular}{| c | c | c | c | c | c | c | c |}
 \hline
-$p$ & $q$ & $r$ & $p \land q$ & ($p \land q$) \implies r & $ $p \implies $r $& $q \implies r  $ & $ (p \implies r) \land (q \implies r) $ \\
+$p$ & $q$ & $r$ & $p \land q$ & $(p \land q) \implies r$ & $p \implies r$ & $q \implies r$ & $(p \implies r) \land (q \implies r)$ \\
 \hline
 V & V & V & V & V & V & V & V\\
 V & V & F & V & F & F & F & F\\
@@ -40,25 +29,27 @@ F & F & F & F & V & V & V & V\\
 
 \vspace{0.5cm}
 
-Il est possible de voir que pour certaines valeurs de p, q et r, l'expression est vraie.
+Puisque les valeurs de vérité diffèrent dans certaines lignes du tableau de vérité, les expressions ne sont pas logiquement équivalentes.
 
 \vspace{0.5cm}
 
-b) Soient les expressions $$A:= (p \implies (q \land r)) \implies ((p \implies q) \land (p \implies r))$$ et
-$$B := (p \implies (q \land r)) \impliedby ((p \implies q) \land (p \implies r))$$
+b) Soient les expressions 
+$$A := (p \implies (q \land r)) \implies ((p \implies q) \land (p \implies r))$$ 
+et 
+$$B := (p \implies (q \land r)) \leftarrow ((p \implies q) \land (p \implies r))$$
 
 Voici un tableau de vérité pour montrer que l'expression est vraie.
 
 \begin{center}
-\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c |}
 \hline
-$p$ & $q$ & $r$ & $p \implies$ ($q \land r$) & $q \land r$ & $ A $& $p \implies q  $ & $ (p \implies q) \land (p \implies r) $ & $p \implies r $ & $ B $\\
+$p$ & $q$ & $r$ & $p \implies (q \land r)$ & $q \land r$ & $A$ & $p \implies q$ & $(p \implies q) \land (p \implies r)$ & $p \implies r$ & $B$\\
 \hline
 V & V & V & V & V & V & V & V & V & V\\
-V & V & F & F & F & V & V & F & F & V\\
-V & F & V & F & F & V & F & F & V & V\\
+V & V & F & F & F & F & V & F & F & F\\
+V & F & V & F & F & F & F & F & V & F\\
 F & V & V & V & V & V & V & V & V & V\\
-V & F & F & F & F & V & F & F & F & V\\
+V & F & F & F & F & F & F & F & F & F\\
 F & F & V & V & F & V & V & V & V & V\\
 F & V & F & V & F & V & V & V & V & V\\
 F & F & F & V & F & V & V & V & V & V\\
@@ -69,13 +60,13 @@ F & F & F & V & F & V & V & V & V & V\\
 \begin{center}
 \begin{tabular}{| c | c |}
 \hline
-$ A \land B$ & $(p \implies (q \land r)) \iff ((p \implies q) \land (p \implies r))$\\
+$A \land B$ & $(p \implies (q \land r)) \iff ((p \implies q) \land (p \implies r))$\\
 \hline
 V & V \\
+F & F \\
+F & F \\
 V & V \\
-V & V \\
-V & V \\
-V & V \\
+F & F \\
 V & V \\
 V & V \\
 V & V \\
@@ -84,7 +75,5 @@ V & V \\
 \end{center}
 
 par la définition de l’opérateur si et seulement si.
-
-
 
 \end{document}
