@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{array} 
+
+\begin{document}
+\newcommand{\role}{\mbox{ROLE}}
+\newcommand{\attribut}{\mbox{ATTRIBUT}}
+\newcommand{\attributn}{\mbox{ATTRIBUT\_A}}
+\newcommand{\profil}{\mbox{PROFIL}}
+
+Exercice 3
+
+\vspace{0.5cm}
+
+a) $ \textsf{bec} \in \attribut $
+
+\vspace{0.5cm}
+
+b) $ (\forall x \mid x \in \attributn \implies x \in \attribut) $
+
+\vspace{0.5cm}
+
+c) $ (\exists x  \mid x \in \attribut \implies x \notin \attributn) $
+
+\vspace{0.5cm}
+
+d) $ (\forall x \mid x \in \profil \implies \textsf{plume} \in x) $
+
+\vspace{0.5cm}
+
+e) $ |\attribut \setminus \attributn | \geq 20 $
+
+\vspace{0.5cm}
+
+f)  Soit $E \subseteq \attribut$ on peut alors définir l'ensemble des attributs qui ne font partie d’aucun profil comme suit:
+
+$(\forall x \mid x \in E \implies (x \in \attribut \land E \notin \profil ))  $
+
+\vspace{0.5cm}
+
+g) $(\forall x \in \attribut \mid (\exists y \in \profil \mid x \in y))$
+
+\vspace{0.5cm}
+
+h) $ (\forall x \in \attribut \mid x \notin \role) \land (\forall y \in \profil \mid y \notin \attribut) $
+
+\vspace{0.5cm}
+
+i) Pour chaque attribut alimentaire, il y au moins un profil auquel il n'appartient pas.
+
+\vspace{0.5cm}
+
+j)
+\begin{itemize}
+\item[f-1.] rien n’est possible
+\item[f-2.] $\attributn \in \mathcal{P}(\attribut)$
+\item[f-3.] $\{\textsf{bec}\} \in \profil$
+\item[f-4.] $\mathcal{P}(\attributn) \subseteq \mathcal{P}(\attribut)$
+\end{itemize}
+
+\end{document}
