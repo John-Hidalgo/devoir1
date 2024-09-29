@@ -29,7 +29,15 @@ F & F & F & F & V & V & V & V\\
 
 \vspace{0.5cm}
 
-Puisque les valeurs de vérité diffèrent dans certaines lignes du tableau de vérité, les expressions ne sont pas logiquement équivalentes.
+Pour clarifier, les expressions $(p \land q) \implies r$ et $(p \implies r) \land (q \implies r)$ ne sont pas logiquement équivalentes car elles diffèrent dans les lignes 2 et 4 du tableau de vérité. Plus précisément :
+
+\begin{itemize}
+    \item Dans la ligne 2, $(p \land q) \implies r$ est **F** tandis que $(p \implies r) \land (q \implies r)$ est **F**.
+    \item Dans la ligne 4, $(p \land q) \implies r$ est **V** tandis que $(p \implies r) \land (q \implies r)$ est **F**.
+\end{itemize}
+
+Cette différence montre que les deux expressions ne sont pas logiquement équivalentes.
+
 
 \vspace{0.5cm}
 
